@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+React created virtual DOM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+in react you return html tags
 
-## Available Scripts
+Virtual DOM
+Passing Props
+State Hooks
+Effect Hooks
+Lifting State up
+Routing
+connecting to a backend
 
-In the project directory, you can run:
+virtual DOM
+index.js (only 2 things to change ever - add routing - add state provider)
+App.js (final parent of the DOM)
 
-### `npm start`
+<Hello name="Mike" age="29" /> props is an object
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+function Hello(props) --- always props
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+next js (for multipage)for more complex apps
 
-### `npm test`
+before return is all JS and after return is all tags
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+one that guesses a random nuber and call it 3 times
+modify hello, so it will say name, fav color, fav cereal tupe
 
-### `npm run build`
+&nbsp; (to add white space in REACT)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+short cut to set up components rfce enter
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+if server issues:
+npm audit fix --force
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+{tweetsArray.map(function(specificTweet){
+return<Tweet tweet={SpecificTweet}/>
+})
 
-### `npm run eject`
+pure function versus impure function
+pure function - treated as a box (never any side effect) referred to as stateless
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+example of pure function
+function add(a,b) {
+return a+b
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+example of impure function - (something that is introduced outside the function
+and not introduced as parameter
+let c = 1
+function add(a,b) {
+c++
+return a+b+c
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+impure function should best be avoided
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+stateful component (somthing that can hold on to values and change)
 
-## Learn More
+Ctrl + mouser over + click on components adn it will open up the compoenent
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<React.Fragment>
+</React.Fragment> Using this react won't create a DOM node
+OR <> </>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+onChange={(e) => setUsername(e.target.value)}
 
-### Code Splitting
+review - hooks-testing from the respository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+colors.json - in src
+[
+{ "color" = "red"
+"id" = "248902809"
+},
+{ "color" = "red"
+"id" = "248902809"
+}
+]
 
-### Analyzing the Bundle Size
+import colorsJson from './/'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Objects are not valid as a React Child (erro)
+trying to map an object but DOM can't handle objects
 
-### Making a Progressive Web App
+each child needs aunique
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+{truthyStatement && SOMETHING}
 
-### Advanced Configuration
+{individualColor.color === "orange" && <p>FAVORITE</p>}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+turnary operator - is like if else - preferred use for on condidtion but you can chain
+isComplete ? "this this" : "else"
 
-### Deployment
+useEffect
+Axios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Routing
 
-### `npm run build` fails to minify
+npm react-router-dom
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+index.js - router or state management tool like redux (only these two time to)
+
+import {BrowserRouter} from ''
+
+wrap <BrowerRouter> around <App /> </BrowserRouter>
+
+App.js
+there should be an order to things that you import
+first line should be
+import React
+--next-- packages
+import { Routes, Route, Link } from "react-"
+
+css - at the end
+
+Routes used to be called Switch
+
+<Routes>
+<Route path='/hover' element={<Hover />}/>
+<Route path='/hover/:name' element={<Hover />}/>
+<Route path='/*' element={<NotFound />}/>
+</Routes>
+
+404 - create router - NotFound.js
+
+import {useParams } from ""
+
+Link to="/colors">Go to Colors</Link>
+
+json web token instead of sessions
+
+Import from react-router-dom
+
+BrowserRouter - This goes in index.js, wrapped around <App/>.
+This makes the router accessible to the app
+Routes - The container that holds all pages
+Route - The individual pages
+Link - The equivalent of the <a> tag
+useParams - used to pull dynamic values out of the url
+useNavigate - 'redirects' to a different page

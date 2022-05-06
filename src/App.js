@@ -27,6 +27,7 @@ function App() {
         </nav>
       </header>
 
+      {/* npm i react-router-dom */}
       <Routes>
         <Route path="/" element={<Hover />} />
         <Route path="/greet/:name" element={<Greeting />} />
