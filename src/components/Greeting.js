@@ -1,53 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const Greeting = (props) => {
-  console.log(React.useState);
-  // let greet;
-  // if (props.lang === "en") {
-  //   greet = "Hello";
-  // } else if (props.lang === "es") {
-  //   greet = "Hola";
-  // } else if (props.lang === "de") {
-  //   greet = "Hallo";
-  // } else {
-  //   greet = "Bonjour";
-  // }
+const Greeting = () => {
+  let params = useParams();
 
-  // let greet;
-  // switch (props.lang) {
-  //   case "en":
-  //     greet = "hello";
-  //     break;
-  //   case "es":
-  //     greet = "Hola";
-  //     break;
-  //   case "de":
-  //     greet = "Hallo";
-  //     break;
-  //   default:
-  //     greet = "Bonjour";
-  //     break;
-  // }
+  console.log("This is our url params", params);
 
-  //object literals
-  const languages = {
-    en: "Hello",
-    es: "Hola",
-    de: "Hallo",
-    fr: "Bonjour",
-  };
-
-  //dot notation
-  // console.log(languages.de);
-
-  // bracket notation
-  console.log(languages[props.lang]);
-
-  return (
-    <p style={{ textAlign: "center" }}>
-      {languages[props.lang]} {props.children}
-    </p>
-  );
+  return <p style={{ textAlign: "center" }}>Hello {params.name}</p>;
 };
 
 export default Greeting;
